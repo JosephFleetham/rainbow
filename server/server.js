@@ -17,15 +17,15 @@ const authCheck = jwt({
         rateLimit: true,
         jwksRequestsPerMinute: 5,
         // YOUR-AUTH0-DOMAIN name e.g https://prosper.auth0.com
-        jwksUri: "{YOUR-AUTH0-DOMAIN}/.well-known/jwks.json"
+        jwksUri: "https://fleetham.auth0.com/.well-known/jwks.json"
     }),
     // This is the identifier we set when we created the API
-    audience: '{YOUR-API-AUDIENCE-ATTRIBUTE}',
-    issuer: '{YOUR-AUTH0-DOMAIN}',
+    audience: 'rainbow.com',
+    issuer: 'https://fleetham.auth0.com/',
     algorithms: ['RS256']
 });
 
-app.get('/api/images', (req, res) => {
+app.get('/api/images', authCheck, (req, res) => {
   let images = [
   {
     id: 1,

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Images from "./images.js"
 import Nav from './nav.js';
 import { getImageData } from '../utils/rainbow-api';
-import Admin from './admin.js'
+import { login, logout, isLoggedIn } from '../utils/AuthService';
 
-class Images extends Component {
 
+class Admin extends Component {
   constructor() {
     super()
     this.state = {
@@ -17,7 +18,6 @@ class Images extends Component {
     getImageData().then((images) => {
       this.setState({ images });
     });
-    console.log(this.state.images);
   }
 
 
@@ -27,11 +27,16 @@ class Images extends Component {
 
   render() {
     const { images }  = this.state;
-
     return (
       <div>
         <Nav/>
         <div className="ui three stackable cards">
+        {
+         ( isLoggedIn() ) ?
+         <div>
+          YOU LOGGED IN WOW
+         </div> :  ''
+        }
           { images.map((image, index) => (
             <div id="box">
               <div className="card" key={index}>
@@ -48,4 +53,4 @@ class Images extends Component {
   }
 }
 
-export default Images;
+export default Admin

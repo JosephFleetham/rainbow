@@ -2,3 +2,19 @@
 .log {
   margin: 5px 10px 0 0;
 }
+
+#box {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  background: #ffff;
+  width: 500px;
+  height: 405px;
+  border: 0px solid black;
+  box-shadow: 0 19px 38px rgba(0,0,0,.1), 0 15px 12px rgba(0,0,0,.12);
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-left: 25px;
+  margin-bottom: 0px;
+
+}
