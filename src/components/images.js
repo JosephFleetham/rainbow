@@ -27,7 +27,6 @@ class Images extends Component {
 
   render() {
     const { images }  = this.state;
-
     return (
       <div>
         <Nav/>

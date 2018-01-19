@@ -25,7 +25,7 @@ const authCheck = jwt({
     algorithms: ['RS256']
 });
 
-app.get('/api/images', authCheck, (req, res) => {
+app.get('/api/images', (req, res) => {
   let images = [
   {
     id: 1,

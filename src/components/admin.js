@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Images from "./Images.js"
 import Nav from './Nav.js';
-import { getImageData } from '../utils/rainbow-api';
+import { getEditableImageData } from '../utils/rainbow-api';
 import { login, logout, isLoggedIn } from '../utils/AuthService';
 
 
@@ -15,7 +15,7 @@ class Admin extends Component {
   }
 
   getImages() {
-    getImageData().then((images) => {
+    getEditableImageData().then((images) => {
       this.setState({ images });
     });
   }
