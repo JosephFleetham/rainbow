@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Images from "./images.js"
-import Nav from './nav.js';
+import Images from "./Images.js"
+import Nav from './Nav.js';
 import { getImageData } from '../utils/rainbow-api';
 import { login, logout, isLoggedIn } from '../utils/AuthService';
 

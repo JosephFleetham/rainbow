@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Images from "./components/images.js";
-import Nav from "./components/nav.js";
+import Images from "./components/Images.js";
+import Nav from "./components/Nav.js";
 import App from "./components/App.js";
 import { Router, Route, browserHistory } from 'react-router';
-import Admin from "./components/admin.js"
+import Admin from "./components/Admin.js"
 import { requireAuth } from './utils/AuthService';
 import Callback from './components/Callback.js'
 
