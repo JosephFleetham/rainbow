@@ -29,27 +29,39 @@ app.get('/api/images', (req, res) => {
   let images = [
   {
     id: 1,
-    image_url: "When Chuck Norris was a baby, he didn't suck his mother's breast. His mother served him whiskey, straight out of the bottle."
+    title: "this is item 1",
+    description: "",
+    photo: ""
   },
   {
     id: 2,
-    image_url: 'When Chuck Norris makes a burrito, its main ingredient is real toes.'
+    title: "this is item 2",
+    description: "",
+    photo: ""
   },
   {
     id: 3,
-    image_url: 'Chuck Norris eats steak for every single meal. Most times he forgets to kill the cow.'
+    title: "this is item 3",
+    description: "",
+    photo: ""
   },
   {
     id: 4,
-    image_url: "Chuck Norris doesn't believe in ravioli. He stuffs a live turtle with beef and smothers it in pig's blood."
+    title: "this is item 4",
+    description: "",
+    photo: ""
   },
   {
     id: 5,
-    image_url: "Chuck Norris recently had the idea to sell his urine as a canned beverage. We know this beverage as Red Bull."
+    title: "this is item 5",
+    description: "",
+    photo: ""
   },
   {
     id: 6,
-    image_url: 'When Chuck Norris goes to out to eat, he orders a whole chicken, but he only eats its soul.'
+    title: "this is item 6",
+    description: "",
+    photo: ""
   }
   ];
   res.json(images);

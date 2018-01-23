@@ -3,13 +3,15 @@ import { Link } from 'react-router';
 import Nav from './Nav.js';
 import { getImageData } from '../utils/rainbow-api';
 import Admin from './Admin.js'
+import Image from './Image.js'
 
 class Images extends Component {
 
   constructor() {
     super()
     this.state = {
-      images: []
+      images: [],
+      index: []
      };
   }
 
@@ -17,30 +19,29 @@ class Images extends Component {
     getImageData().then((images) => {
       this.setState({ images });
     });
-    console.log(this.state.images);
   }
 
-
-  componentDidMount() {
+  componentWillMount() {
     this.getImages();
   }
 
+
+
   render() {
-    const { images }  = this.state;
+    const images = this.state.images.map((image) => (
+      <Image
+        id={image.id}
+        title={image.title}
+        description={image.description}
+        photo={image.photo}
+
+      />
+    ));
     return (
       <div>
         <Nav/>
         <div className="ui three stackable cards">
-          { images.map((image, index) => (
-            <div id="box">
-              <div className="card" key={index}>
-                <div className="image">
-                  {image.id}
-                  {image.image_url}
-                </div>
-              </div>
-            </div>
-          ))}
+          {images}
         </div>
       </div>
     );
