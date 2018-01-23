@@ -3,11 +3,15 @@ import { getAccessToken } from './AuthService';
 
 const BASE_URL = 'http://localhost:3333';
 
-export {getImageData, getEditableImageData};
+export {getImageData, deleteData};
 
-function getEditableImageData() {
-  const url =BASE_URL+'/api/images';
-  return axios.get(url, {headers: { Authorization: `Bearer ${getAccessToken()}` }}).then(response => response.data);
+function deleteData() {
+  return axios.delete(BASE_URL + '/api/images') //trying to delete 1 nested item from server instead of entire item REDUX??
+  .then(response =>
+    response.json().then(json => {
+      return json;
+    })
+  );
 }
 
 function getImageData() {

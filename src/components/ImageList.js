@@ -4,7 +4,7 @@ import Nav from './Nav.js';
 import { getImageData } from '../utils/rainbow-api';
 import Image from './Image.js'
 
-class Images extends Component {
+class ImageList extends Component {
 
   constructor() {
     super()
@@ -47,4 +47,4 @@ class Images extends Component {
   }
 }
 
-export default Images;
+export default ImageList;

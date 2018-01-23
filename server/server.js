@@ -27,42 +27,43 @@ const authCheck = jwt({
 
 app.get('/api/images', (req, res) => {
   let images = [
-  {
-    id: 1,
-    title: "this is item 1",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 2,
-    title: "this is item 2",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 3,
-    title: "this is item 3",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 4,
-    title: "this is item 4",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 5,
-    title: "this is item 5",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 6,
-    title: "this is item 6",
-    description: "",
-    photo: ""
-  }
+    {
+      id: 1,
+      title: "this is item 1",
+      description: "",
+      photo: ""
+    },
+    {
+      id: 2,
+      title: "this is item 2",
+      description: "",
+      photo: ""
+    },
+    {
+      id: 3,
+      title: "this is item 3",
+      description: "",
+      photo: ""
+    },
+    {
+      id: 4,
+      title: "this is item 4",
+      description: "",
+      photo: ""
+    },
+    {
+      id: 5,
+      title: "this is item 5",
+      description: "",
+      photo: ""
+    },
+    {
+      id: 6,
+      title: "this is item 6",
+      description: "",
+      photo: ""
+    }
+
   ];
   res.json(images);
 })
