@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Images from "./Images.js"
+import ImageList from "./ImageList.js"
 import Nav from './Nav.js';
 import { getEditableImageData } from '../utils/rainbow-api';
 import { login, logout, isLoggedIn } from '../utils/AuthService';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
-import Images from  './Images.js'
+import ImageList from  './ImageList.js'
 import Nav from './Nav.js'
 
 class App extends Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Images from "./components/Images.js";
+import ImageList from "./components/ImageList.js";
 import Nav from "./components/Nav.js";
 import App from "./components/App.js";
 import { Router, Route, browserHistory } from 'react-router';
@@ -13,7 +13,7 @@ const Root = () => {
     <div className="container">
       <Router history={browserHistory}>
         <Route path="/" component={App}/>
-        <Route path="/gallery" component={Images}/>
+        <Route path="/gallery" component={ImageList}/>
         <Route path="/admin" component={Admin} onEnter={requireAuth} />
         <Route path="/callback" component={Callback} />
       </Router>
