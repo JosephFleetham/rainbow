@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav.js';
 import { getImageData } from '../utils/rainbow-api';
-import Admin from './Admin.js'
 import Image from './Image.js'
 
 class Images extends Component {
