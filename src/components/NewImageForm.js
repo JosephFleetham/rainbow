@@ -26,31 +26,11 @@ class NewImageForm extends Component {
     this.setState({
       photo: evt.target.value
     });
-    console.log(this.state.description);
+    console.log(this.state.photo);
   }
   handleSubmit (evt) {
     const newImages = this.state.newImages;
     console.log("wowwow");
-    // newCards.push(
-    //   {
-    //     "id": (JSON.parse(localStorage.getItem("cards")).length + 1).toString(),
-    //     "title": this.state.title,
-    //     "description": this.state.description,
-    //     "photo": this.state.photo,
-    //     "author": "",
-    //     "authorPhoto": "",
-    //     "time": "",
-    //     "votes": "",
-    //     "comments": ""
-    //   },
-    // );
-    // var arr = JSON.parse(localStorage.getItem("cards")) || [];
-    // arr.push(
-    //   this.state.newCards[0]
-    // );
-    // localStorage.setItem('cards', JSON.stringify(arr))
-    // console.log(JSON.parse(localStorage.getItem('cards')))
-    // this.props.app.setState({ cards: JSON.parse(localStorage.getItem('cards')) });
   }
   render() {
     return (
@@ -64,7 +44,7 @@ class NewImageForm extends Component {
             name="title"
             placeholder="Card title..."
             defaultValue={this.props.title}
-            onChange={this.updateTitleValue}
+            onChange={this.updateTitleValue.bind(this)}
           />
           <br />
           <br />
@@ -74,7 +54,7 @@ class NewImageForm extends Component {
           <textarea
             name='description'
             defaultValue={this.props.description}
-            onChange={this.updateDescriptionValue}
+            onChange={this.updateDescriptionValue.bind(this)}
             rows="4"
             cols="25"
             placeholder="Enter description here..."
@@ -87,7 +67,7 @@ class NewImageForm extends Component {
             name="title"
             placeholder="Image URL..."
             defaultValue={this.props.photo}
-            onChange={this.updatePhotoValue}
+            onChange={this.updatePhotoValue.bind(this)}
           />
           <button className='ui large blue button' onClick={this.handleSubmit}>
             Submit

@@ -68,11 +68,11 @@ class Nav extends Component {
              ( isLoggedIn() ) ?
              <div className="ui dropdown">
                  <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
-                 <div className="menu"> //changing classname to id displays the form without clicking.
+                 <div id="menu"> //changing classname to id displays the form without clicking.
                    <NewImageForm
+                     app={this}
                      onFormSubmit={this.handleSubmit}
                      images={this.props.images}
-                     app={this.props.app}
                    />
                  </div>
              </div>
