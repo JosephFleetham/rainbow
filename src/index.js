@@ -6,6 +6,7 @@ import App from "./components/App.js";
 import { Router, Route, browserHistory } from 'react-router';
 import { requireAuth } from './utils/AuthService';
 import Callback from './components/Callback.js'
+import {$} from 'jquery'
 
 const Root = () => {
   return (

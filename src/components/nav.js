@@ -2,9 +2,37 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import '../App.css';
 import { login, logout, isLoggedIn } from '../utils/AuthService';
+import {$} from 'jquery';
+import NewImageForm from './NewImageForm';
 
 class Nav extends Component {
-
+  constructor() {
+    super();
+    this.state = {
+      dropdownOpen: []
+    };
+  }
+  componentWillMount () {
+    this.setState({
+      dropdownOpen: false
+    })
+  }
+  componentDidMount () {
+    console.log(this.state.dropdownOpen)
+  }
+  toggleForm() {
+    if (this.state.dropdownOpen === false) {
+      // $('.menu')
+      // .slideDown();
+      this.setState({ dropdownOpen: true });
+    }
+    else {
+      // $('.menu')
+      // .slideUp();
+      this.setState({ dropdownOpen: false });
+    }
+    console.log(this.state.dropdownOpen)
+  }
   render() {
     return (
       <div id="topnav">
@@ -37,7 +65,18 @@ class Nav extends Component {
           </div>
           <div className="column">
             {
-             ( isLoggedIn() ) ? <Link to="/admin">Add/Edit Images</Link> :  ''
+             ( isLoggedIn() ) ?
+             <div className="ui dropdown">
+                 <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
+                 <div className="menu"> //changing classname to id displays the form without clicking.
+                   <NewImageForm
+                     onFormSubmit={this.handleSubmit}
+                     images={this.props.images}
+                     app={this.props.app}
+                   />
+                 </div>
+             </div>
+              :  ''
             }
           </div>
         </div>
