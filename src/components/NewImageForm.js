@@ -29,8 +29,9 @@ class NewImageForm extends Component {
     console.log(this.state.photo);
   }
   handleSubmit (evt) {
-    const newImages = this.state.newImages;
-    console.log("wowwow");
+    evt.preventDefault();
+    console.log(`${this.state.title} + ${this.state.description} + ${this.state.photo}`)
+    //we will be tying this into the POST method in a bit
   }
   render() {
     return (

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Nav from './Nav.js';
 import { getImageData } from '../utils/rainbow-api';
 import Image from './Image.js'
+import DATA from '../utils/data.json';
 
 class ImageList extends Component {
 
@@ -10,24 +11,33 @@ class ImageList extends Component {
     super()
     this.state = {
       images: [],
-      index: []
+      index: [],
+      data: []
      };
   }
 
-  getImages() {
-    getImageData().then((images) => {
-      this.setState({ images });
-    });
+  componentWillMount() {
+    this.setState({data: DATA});
   }
 
-  componentWillMount() {
-    this.getImages();
+  componentDidMount() {
+    console.log(this.state.data);
   }
+
+  // getImages() {
+  //   getImageData().then((images) => {
+  //     this.setState({ images });
+  //   });
+  // }
+  //
+  // componentWillMount() {
+  //   this.getImages();
+  // }
 
 
 
   render() {
-    const images = this.state.images.map((image) => (
+    const images = this.state.data.map((image) => (
       <Image
         id={image.id}
         title={image.title}

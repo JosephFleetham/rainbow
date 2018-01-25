@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import '../App.css';
 import { login, logout, isLoggedIn } from '../utils/AuthService';
-import {$} from 'jquery';
+import $ from 'jquery';
 import NewImageForm from './NewImageForm';
 
 class Nav extends Component {
@@ -22,13 +22,11 @@ class Nav extends Component {
   }
   toggleForm() {
     if (this.state.dropdownOpen === false) {
-      // $('.menu')
-      // .slideDown();
+      $('.menu').slideUp();
       this.setState({ dropdownOpen: true });
     }
     else {
-      // $('.menu')
-      // .slideUp();
+      $('.menu').slideDown();
       this.setState({ dropdownOpen: false });
     }
     console.log(this.state.dropdownOpen)
@@ -68,7 +66,7 @@ class Nav extends Component {
              ( isLoggedIn() ) ?
              <div className="ui dropdown">
                  <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
-                 <div id="menu"> //changing classname to id displays the form without clicking.
+                 <div className="menu">
                    <NewImageForm
                      app={this}
                      onFormSubmit={this.handleSubmit}

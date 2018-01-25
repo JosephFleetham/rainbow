@@ -2,14 +2,19 @@
 
 const express = require('express');
 const app = express();
+const router = express.Router();
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+const Image = require('../src/models/image.js');
+
+mongoose.connect('mongodb://jfleetham:rainbowasd123@ds029705.mlab.com:29705/rainbow');
 
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
@@ -25,47 +30,36 @@ const authCheck = jwt({
     algorithms: ['RS256']
 });
 
-app.get('/api/images', (req, res) => {
-  let images = [
-  {
-    id: 1,
-    title: "this is item 3",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 2,
-    title: "this is item 2",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 3,
-    title: "this is item 3",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 4,
-    title: "this is item 4",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 5,
-    title: "this is item 5",
-    description: "",
-    photo: ""
-  },
-  {
-    id: 6,
-    title: "this is item 6",
-    description: "",
-    photo: ""
-  }
-  ];
-  res.json(images);
+app.get('/api', (req, res) => {
+  res.json({ message: 'API Initalized! '});
 })
+
+//adding the /comments route to our /api router
+app.get('/api/images', (req, res) => {
+    Image.find(function(err, images) {
+        if (err)
+            res.send(err);
+        //responds with a json object of our database comments.
+        res.json(images)
+    });
+})
+app.post(function(req, res) {
+    const image = new Image();
+    //body parser lets us use the req.body
+    image.id = req.body.id;
+    image.title = req.body.title;
+    image.description = req.body.description;
+    image.photo = req.body.photo;
+    image.save(function(err) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'Image successfully added!'
+        });
+    });
+});
+//Use our router configuration when we call /api
+//...
 
 app.listen(3333);
 console.log('Listening on localhost:3333');

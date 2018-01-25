@@ -13,6 +13,8 @@ class App extends Component {
 
           />
         </div>
+        <div className="body">
+        </div>
       </div>
     )
   }
