@@ -68,6 +68,10 @@ class Nav extends Component {
                  <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
                  <div className="menu">
                    <NewImageForm
+                     title = {this.props.title}
+                     description={this.props.description}
+                     photo={this.props.photo}
+                     data={this.props.data}
                      app={this}
                      onFormSubmit={this.handleSubmit}
                      images={this.props.images}

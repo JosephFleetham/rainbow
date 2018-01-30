@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NewImageForm extends Component {
   constructor() {
@@ -6,6 +7,7 @@ class NewImageForm extends Component {
     this.state = {
       newImages: []
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentWillMount () {
 
@@ -28,10 +30,27 @@ class NewImageForm extends Component {
     });
     console.log(this.state.photo);
   }
-  handleSubmit (evt) {
-    evt.preventDefault();
-    console.log(`${this.state.title} + ${this.state.description} + ${this.state.photo}`)
-    //we will be tying this into the POST method in a bit
+  handleSubmit(e) {
+    e.preventDefault();
+    let title = this.state.title.trim();
+    let description = this.state.description.trim();
+    let photo = this.state.photo.trim();
+    if (!title || !description || !photo) {
+      return;
+    }
+    this.handleImageSubmit({ title: title, description: description, photo: photo});
+    this.setState({ title: '', description: '', photo: ''})
+  }
+  handleImageSubmit(image) {
+    axios.post('http://localhost:3333/api/images', image)
+      .then(res => {
+        this.setState({
+          data: res
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
   render() {
     return (

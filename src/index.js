@@ -6,7 +6,8 @@ import App from "./components/App.js";
 import { Router, Route, browserHistory } from 'react-router';
 import { requireAuth } from './utils/AuthService';
 import Callback from './components/Callback.js'
-import {$} from 'jquery'
+import $ from 'jquery'
+import NewImageForm from './components/NewImageForm.js';
 
 const Root = () => {
   return (
@@ -20,4 +21,4 @@ const Root = () => {
   )
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<Root/>, document.getElementById('root'));
