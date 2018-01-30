@@ -8,11 +8,12 @@ const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const Image = require('../src/models/image.js');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-const Image = require('../src/models/image.js');
 
 mongoose.connect('mongodb://jfleetham:rainbowasd123@ds029705.mlab.com:29705/rainbow');
 
@@ -43,10 +44,9 @@ app.get('/api/images', (req, res) => {
         res.json(images)
     });
 })
-app.post(function(req, res) {
+app.post('/api/images', (req, res) => {
     const image = new Image();
     //body parser lets us use the req.body
-    image.id = req.body.id;
     image.title = req.body.title;
     image.description = req.body.description;
     image.photo = req.body.photo;
