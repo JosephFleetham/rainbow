@@ -8,6 +8,7 @@ import { requireAuth } from './utils/AuthService';
 import Callback from './components/Callback.js'
 import $ from 'jquery'
 import NewImageForm from './components/NewImageForm.js';
+import ImageDetail from './components/ImageDetail.js';
 
 const Root = () => {
   return (
@@ -15,6 +16,7 @@ const Root = () => {
       <Router history={browserHistory}>
         <Route path="/" component={App}/>
         <Route path="/gallery" component={ImageList}/>
+        <Route path="/gallery/:image_id" component={ImageDetail} />
         <Route path="/callback" component={Callback} />
       </Router>
     </div>
