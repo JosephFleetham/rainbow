@@ -42,6 +42,10 @@ class NewImageForm extends Component {
     this.setState({ title: '', description: '', photo: ''})
   }
   handleImageSubmit(image) {
+    let images = this.state.data;
+    image.id = Date.now();
+    let newImages = images.concat([image]);
+    this.setState({ data: newImages });
     axios.post('http://localhost:3333/api/images', image)
       .then(res => {
         this.setState({

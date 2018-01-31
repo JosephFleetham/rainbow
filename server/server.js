@@ -58,6 +58,36 @@ app.post('/api/images', (req, res) => {
         });
     });
 });
+
+app.put('/api/images/:image_id', (req, res) => {
+  Image.findById(req.params.image_id, function(err, image) {
+    if (err)
+      res.send(err);
+    (req.body.title) ? image.title = req.body.title: null;
+    (req.body.description) ? image.description = req.body.description: null;
+    (req.body.photo) ? image.photo = req.body.photo: null;
+    image.save(function(err) {
+      if (err)
+        res.send(err);
+      res.json({
+        message: 'Image has been updated'
+      });
+
+    });
+  });
+});
+
+app.delete('/api/images/:image_id', (req, res) => {
+  Image.remove({
+    _id: req.params.image_id
+  }, function(err, image) {
+    if (err)
+      res.send(err);
+    res.json({
+      message: 'Image has been deleted'
+    })
+  })
+});
 //Use our router configuration when we call /api
 //...
 

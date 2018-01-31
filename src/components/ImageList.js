@@ -29,6 +29,7 @@ class ImageList extends Component {
   }
 
 
+
   // getImages() {
   //   getImageData().then((images) => {
   //     this.setState({ images });
@@ -44,11 +45,12 @@ class ImageList extends Component {
   render() {
     const images = this.state.data.map((image) => (
       <Image
+        data = {this.state.data}
         key={image['_id']}
         title={image.title}
         description={image.description}
         photo={image.photo}
-
+        uniqueID={image['_id']}
       />
     ));
     return (
