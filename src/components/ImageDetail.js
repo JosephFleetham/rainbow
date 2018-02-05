@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { login, logout, isLoggedIn } from '../utils/AuthService';
+import Nav from './Nav.js';
 
 class ImageDetail extends Component {
 
@@ -19,6 +20,7 @@ class ImageDetail extends Component {
     if (isLoggedIn()) {
       return (
         <div>
+          <Nav />
           <h1>WOW DETAILS LOGGED IN</h1>
           <br/>
           <h1>{this.props.location.state.uniqueID}</h1>

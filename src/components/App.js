@@ -6,71 +6,34 @@ import Nav from './Nav.js'
 import axios from 'axios';
 import DATA from '../utils/data.json';
 import Footer from './Footer.js'
+import { Router, Route, browserHistory, Redirect, Link } from 'react-router';
+
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      clicked: false
-    };
-  }
-
-  toggleClick () {
-    this.setState({ clicked: true })
-  }
   render() {
-    if (this.state.clicked === false) {
-      return (
-        <div className="body">
-          <div className="pusher">
-            <div className="ui inverted vertical masthead center aligned segment">
-              <div className="ui container">
-                <Nav
-
-                />
-              </div>
-              <div className="ui text container">
-                <h1 className="ui inverted header">
-                  Rainbow
-                </h1>
-                <h2>
-                  Rainbows Gallery
-                </h2>
-                <button className="ui huge primary button" onClick={this.toggleClick.bind(this)}>
-                    Go to Gallery
-                  <i className="right arrow icon">
-                  </i>
-                </button>
-              </div>
-            </div>
-            <Footer
+    return (
+      <div className="body">
+        <div className="pusher">
+          <div className="ui inverted vertical masthead center aligned segment">
+            <Nav
 
             />
-          </div>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div className="body">
-          <div className="pusher">
-            <div className="ui inverted vertical masthead center aligned segment">
-              <div className="ui container">
-                <Nav
-
-                />
-              </div>
-              <ImageList
-
-              />
+            <div className="ui text container">
+              <h1 className="ui inverted header">
+                Rainbow
+              </h1>
+              <h2>
+                Rainbows Gallery
+              </h2>
+              <Link to="/gallery">Here</Link>
             </div>
-            <Footer
-
-            />
           </div>
+          <Footer
+
+          />
         </div>
-      )
-    }
+      </div>
+    )
   }
 }
 

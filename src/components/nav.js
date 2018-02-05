@@ -34,32 +34,36 @@ class Nav extends Component {
   render() {
     return (
       <div id="topnav">
-        <div className="ui large secondary inverted pointing menu">
-          <a className="item">
-            About Me
-          </a>
-          <a className="item">
-            Gallery
-          </a>
-          <div className="column">
-            {
-              ( isLoggedIn() ) ?
-              <div className="ui dropdown">
-                  <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
-                  <div className="menu">
-                    <NewImageForm
-                      title = {this.props.title}
-                      description={this.props.description}
-                      photo={this.props.photo}
-                      data={this.props.data}
-                      app={this}
-                      onFormSubmit={this.handleSubmit}
-                      images={this.props.images}
-                    />
+        <div className="ui inverted vertical masthead center aligned segment">
+          <div className="ui container">
+            <div className="ui large secondary inverted pointing menu">
+              <a className="item">
+                About Me
+              </a>
+              <a className="item">
+                Gallery
+              </a>
+              <div className="column">
+                {
+                  ( isLoggedIn() ) ?
+                  <div className="ui dropdown">
+                      <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
+                      <div className="menu">
+                        <NewImageForm
+                          title = {this.props.title}
+                          description={this.props.description}
+                          photo={this.props.photo}
+                          data={this.props.data}
+                          app={this}
+                          onFormSubmit={this.handleSubmit}
+                          images={this.props.images}
+                        />
+                      </div>
                   </div>
+                    :  ''
+                }
               </div>
-                :  ''
-            }
+            </div>
           </div>
         </div>
       </div>

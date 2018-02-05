@@ -4,6 +4,7 @@ import Nav from './Nav.js';
 import { getImageData } from '../utils/rainbow-api';
 import Image from './Image.js'
 import axios from 'axios';
+import Footer from './Footer.js'
 
 
 class ImageList extends Component {
@@ -55,10 +56,11 @@ class ImageList extends Component {
     ));
     return (
       <div>
-        // <Nav/>
+      <Nav />
         <div className="ui three stackable cards">
           {images}
         </div>
+      <Footer />
       </div>
     );
   }
