@@ -20,13 +20,14 @@ class Nav extends Component {
   componentDidMount () {
     console.log(this.state.dropdownOpen)
   }
-  toggleForm() {
+  toggleForm(e) {
+    e.preventDefault();
     if (this.state.dropdownOpen === false) {
-      $('.menu').slideUp();
+      $('#menu').slideUp();
       this.setState({ dropdownOpen: true });
     }
     else {
-      $('.menu').slideDown();
+      $('#menu').slideDown();
       this.setState({ dropdownOpen: false });
     }
     console.log(this.state.dropdownOpen)
@@ -48,15 +49,9 @@ class Nav extends Component {
                   ( isLoggedIn() ) ?
                   <div className="ui dropdown">
                       <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
-                      <div className="menu">
+                      <div id="menu">
                         <NewImageForm
-                          title = {this.props.title}
-                          description={this.props.description}
-                          photo={this.props.photo}
-                          data={this.props.data}
-                          app={this}
                           onFormSubmit={this.handleSubmit}
-                          images={this.props.images}
                         />
                       </div>
                   </div>

@@ -38,11 +38,13 @@ class NewImageForm extends Component {
     if (!title || !description || !photo) {
       return;
     }
+    console.log(this.state.data)
+    console.log(this.props.data)
     this.handleImageSubmit({ title: title, description: description, photo: photo});
     this.setState({ title: '', description: '', photo: ''})
   }
   handleImageSubmit(image) {
-    let images = this.state.data;
+    let images = this.props.data;
     image.id = Date.now();
     let newImages = images.concat([image]);
     this.setState({ data: newImages });
