@@ -17,7 +17,6 @@ class Image extends Component {
       photo: ''
     }
     this.deleteImage = this.deleteImage.bind(this);
-    this.editImage = this.editImage.bind(this);
   }
   deleteImage(e) {
     e.preventDefault();
@@ -30,31 +29,6 @@ class Image extends Component {
       .catch(err => {
         console.error(err);
       });
-  }
-  editImage(e) {
-    e.preventDefault();
-    let id = this.props.uniqueID;
-    let title = (this.state.title) ? this.state.author : null;
-    let description = (this.state.description) ? this.state.description : null;
-    let photo = (this.state.photo) ? this.state.photo : null;
-    let image = {
-      title: title,
-      description: description,
-      photo: photo
-    };
-    this.setState({
-      toBeUpdated: !this.state.toBeUpdated,
-      title: '',
-      description: '',
-      photo: ''
-    });
-    axios.put('http://localhost:3333/api/images/' + id, image)
-      .then(res => {
-        console.log('Image edited');
-      })
-      .catch(err => {
-        console.log(err);
-      })
   }
   imageDetailRedirect() {
     console.log(this.props.uniqueID);
@@ -69,9 +43,8 @@ class Image extends Component {
     if (isLoggedIn()) {
       return (
         <div id="box">
-          <img src={this.props.photo} alt="cover"></img>
-          <div className="CardContent">
-          <h1><Link to={{
+          <div id="imagecover">
+          <Link to={{
             pathname: `/gallery/` + this.props.uniqueID,
             state: {
               uniqueID: this.props.uniqueID,
@@ -79,17 +52,13 @@ class Image extends Component {
               description: this.props.description,
               photo: this.props.photo
             }
-          }}>DETAILS</Link></h1>
-            <h1>{this.props.title}</h1>
-            <h2>YOU ARE LOGGED IN</h2>
-            <p>{this.props.description}</p>
-            <h1>{this.props.uniqueID}</h1>
-            <button className='ui large blue button' onClick={this.deleteImage}>
-              Delete
-            </button>
-            <button className='ui large blue button' onClick={this.editImage}>
-              Edit
-            </button>
+          }}>
+            <img src={this.props.photo} alt="cover"></img>
+          </Link>
+
+          </div>
+          <div id='x'>
+            <img src='https://cdn3.iconfinder.com/data/icons/defcon/512/delete-512.png' onClick={this.deleteImage}></img>
           </div>
         </div>
       )
@@ -97,9 +66,8 @@ class Image extends Component {
     else {
       return (
         <div id="box">
-          <img src={this.props.photo} alt="cover"></img>
-          <div className="CardContent">
-          <h1><Link to={{
+          <div id="imagecover">
+          <Link to={{
             pathname: `/gallery/` + this.props.uniqueID,
             state: {
               uniqueID: this.props.uniqueID,
@@ -107,10 +75,10 @@ class Image extends Component {
               description: this.props.description,
               photo: this.props.photo
             }
-          }}>DETAILS</Link></h1>
-            <h1>{this.props.title}</h1>
-            <p>{this.props.description}</p>
-            <h1>{this.props.uniqueID}</h1>
+          }}>
+            <img src={this.props.photo} alt="cover"></img>
+          </Link>
+
           </div>
         </div>
       )

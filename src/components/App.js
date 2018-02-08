@@ -14,12 +14,12 @@ class App extends Component {
     return (
       <div className="body">
         <div className="pusher">
-          <div className="ui inverted vertical masthead center aligned segment">
+          <div className="ui vertical masthead center aligned segment">
             <Nav
 
             />
             <div className="ui text container">
-              <h1 className="ui inverted header">
+              <h1 className="ui header">
                 Rainbow
               </h1>
               <h2>

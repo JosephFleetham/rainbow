@@ -57,8 +57,10 @@ class ImageList extends Component {
     return (
       <div>
       <Nav />
-        <div className="ui three stackable cards">
-          {images}
+        <div id="list">
+          <div className="ui three stackable cards">
+            {images}
+          </div>
         </div>
       <Footer />
       </div>

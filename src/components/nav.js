@@ -35,9 +35,9 @@ class Nav extends Component {
   render() {
     return (
       <div id="topnav">
-        <div className="ui inverted vertical masthead center aligned segment">
+        <div className="ui vertical masthead center aligned segment">
           <div className="ui container">
-            <div className="ui large secondary inverted pointing menu">
+            <div className="ui large secondary pointing menu">
               <a className="item">
                 About Me
               </a>

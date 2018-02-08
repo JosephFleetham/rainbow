@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { getImageData } from '../utils/rainbow-api';
 
 class NewImageForm extends Component {
   constructor() {
@@ -9,8 +10,14 @@ class NewImageForm extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentWillMount () {
+  getImages() {
+    getImageData().then((images) => {
+      this.setState({ images });
+    });
+  }
 
+  componentWillMount() {
+    this.getImages();
   }
   updateTitleValue (evt) {
     this.setState({
@@ -44,7 +51,7 @@ class NewImageForm extends Component {
     this.setState({ title: '', description: '', photo: ''})
   }
   handleImageSubmit(image) {
-    let images = this.props.data;
+    let images = this.state.images;
     image.id = Date.now();
     let newImages = images.concat([image]);
     this.setState({ data: newImages });
@@ -53,6 +60,7 @@ class NewImageForm extends Component {
         this.setState({
           data: res
         });
+        console.log("Sucessfully added");
       })
       .catch(err => {
         console.error(err);
