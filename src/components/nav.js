@@ -9,28 +9,26 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      dropdownOpen: []
+      dropdownOpen: false
     };
   }
-  componentWillMount () {
-    this.setState({
-      dropdownOpen: false
-    })
-  }
+  // componentWillMount () {
+  //   this.setState({
+  //     dropdownOpen: false
+  //   })
+  // }
   componentDidMount () {
     console.log(this.state.dropdownOpen)
   }
   toggleForm(e) {
     e.preventDefault();
-    if (this.state.dropdownOpen === false) {
+    this.setState({ dropdownOpen: !this.state.dropdownOpen });
+    if (this.state.dropdownOpen === true) {
       $('#menu').slideUp();
-      this.setState({ dropdownOpen: true });
     }
     else {
       $('#menu').slideDown();
-      this.setState({ dropdownOpen: false });
     }
-    console.log(this.state.dropdownOpen)
   }
   render() {
     return (
