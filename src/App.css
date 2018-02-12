@@ -40,6 +40,8 @@
 
 #menu {
   display: none;
+  position: absolute;
+  z-index:1000;
 }
 
 
@@ -50,7 +52,7 @@
   font-family: 'Merriweather', serif;
   position: relative;
   width: 400px;
-  height: 375px;
+  height: 425px;
   border: 0px solid black;
   box-shadow: 0 19px 38px rgba(0,0,0,.1), 0 15px 12px rgba(0,0,0,.12);
   border-radius: 8px;

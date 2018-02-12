@@ -50,6 +50,7 @@ class Nav extends Component {
                       <div id="menu">
                         <NewImageForm
                           onFormSubmit={this.handleSubmit}
+                          dropdownOpen={this.props.dropdownOpen}
                         />
                       </div>
                   </div>
