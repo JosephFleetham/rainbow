@@ -39,9 +39,11 @@ class Nav extends Component {
               <a className="item">
                 About Me
               </a>
-              <a className="item">
-                Gallery
-              </a>
+              <Link to="/gallery">
+                <a className="item">
+                  Gallery
+                </a>
+              </Link>
               <div className="column">
                 {
                   ( isLoggedIn() ) ?
