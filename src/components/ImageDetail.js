@@ -12,9 +12,12 @@ class ImageDetail extends Component {
       toBeUpdated: false,
       title: '',
       description: '',
-      photo: ''
+      photo: '',
+      notification: '',
+      editClicked: false
     }
     this.editImage = this.editImage.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
   }
   componentWillMount() {
     this.setState({
@@ -32,6 +35,9 @@ class ImageDetail extends Component {
       title: evt.target.value
     });
     console.log(this.state.title);
+  }
+  handleEditClick(e) {
+    this.setState({editClicked: !this.state.editClicked});
   }
   editImage(e) {
     e.preventDefault();
@@ -53,14 +59,19 @@ class ImageDetail extends Component {
     axios.put('http://localhost:3333/api/images/' + id, image)
       .then(res => {
         console.log('Image edited');
-        console.log(image)
+        console.log(image);
+        this.setState({notification: "Changes sucessfully saved"})
+        this.setState({editClicked: false});
+        this.setState({
+          
+        })
       })
       .catch(err => {
         console.log(err);
       })
   }
   render() {
-    if (isLoggedIn()) {
+    if (isLoggedIn() && this.state.editClicked === true) {
       return (
         <div>
           <Nav/>
@@ -96,9 +107,16 @@ class ImageDetail extends Component {
           <br/>
           <div id="editbutton">
             <div className="ui center aligned basic segment">
-              <button className='ui large blue button' onClick={this.editImage}>
+              <button className='ui large blue button' onClick={this.handleEditClick}>
                 Edit
               </button>
+              <button className='ui large blue button' onClick={this.editImage}>
+                Save
+              </button>
+              <br />
+              <span>
+                {this.state.notification}
+              </span>
             </div>
           </div>
           <Footer />
@@ -112,6 +130,50 @@ class ImageDetail extends Component {
         //   <h1>{this.props.location.state.description}</h1>
         //   <h1>{this.props.location.state.photo}</h1>
 
+        // </div>
+      )
+    }
+    else if ((isLoggedIn() && this.state.editClicked === false)) {
+      return (
+        <div>
+          <div>
+            <Nav/>
+            <div id="details">
+              <div className="ui segment">
+                <h1 className="ui center aligned header">{this.props.location.state.title}</h1>
+                <br />
+                <img className="ui centered big image" src={this.props.location.state.photo}></img>
+                <br />
+                <br />
+                <p>{this.props.location.state.description}</p>
+              </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div id="editbutton">
+            <div className="ui center aligned basic segment">
+              <button className='ui large blue button' onClick={this.handleEditClick}>
+                Edit
+              </button>
+              <button className='ui large blue button' onClick={this.editImage}>
+                Save
+              </button>
+              <br />
+              <span>
+                {this.state.notification}
+              </span>
+            </div>
+          </div>
+          <Footer />
+        </div>
+        // <div>
+        //   <h1>WOW DETAILS NOT LOGGED IN</h1>
+        //   <br/>
+        //   <h1>{this.props.location.state.uniqueID}</h1>
+        //   <h1>{this.props.location.state.title}</h1>
+        //   <h1>{this.props.location.state.description}</h1>
+        //   <h1>{this.props.location.state.photo}</h1>
         // </div>
       )
     }
@@ -131,14 +193,6 @@ class ImageDetail extends Component {
           </div>
           <Footer />
         </div>
-        // <div>
-        //   <h1>WOW DETAILS NOT LOGGED IN</h1>
-        //   <br/>
-        //   <h1>{this.props.location.state.uniqueID}</h1>
-        //   <h1>{this.props.location.state.title}</h1>
-        //   <h1>{this.props.location.state.description}</h1>
-        //   <h1>{this.props.location.state.photo}</h1>
-        // </div>
       )
     }
   }

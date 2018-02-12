@@ -11,7 +11,7 @@ class NewImageForm extends Component {
       description: '',
       photo: '',
       fields: {},
-      errors: {}
+      errors: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -126,6 +126,7 @@ class NewImageForm extends Component {
 
 
 
+
         this.setState({errors: errors});
         console.log(this.state.errors)
         return formIsValid;
@@ -180,7 +181,7 @@ class NewImageForm extends Component {
           <div className="ui error message">
             <i className="close icon"></i>
             <div className="result">
-              ERRORS
+              {this.state.errors["title"]}
             </div>
           </div>
         </form>
