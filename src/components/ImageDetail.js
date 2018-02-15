@@ -14,10 +14,12 @@ class ImageDetail extends Component {
       description: '',
       photo: '',
       notification: '',
-      editClicked: false
+      editClicked: false,
+      saveClicked: false
     }
     this.editImage = this.editImage.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleSaveClick = this.handleSaveClick.bind(this);
   }
   componentWillMount() {
     this.setState({
@@ -39,6 +41,10 @@ class ImageDetail extends Component {
   handleEditClick(e) {
     this.setState({editClicked: !this.state.editClicked});
   }
+  handleSaveClick(e) {
+    this.setState({saveClicked: !this.state.saveClicked});
+    this.editImage(e)
+  }
   editImage(e) {
     e.preventDefault();
     let id = this.props.location.state.uniqueID;
@@ -52,18 +58,20 @@ class ImageDetail extends Component {
     };
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
-      title: '',
-      description: '',
-      photo: ''
     });
     axios.put('http://localhost:3333/api/images/' + id, image)
       .then(res => {
         console.log('Image edited');
-        console.log(image);
         this.setState({notification: "Changes sucessfully saved"})
         this.setState({editClicked: false});
+        this.setState({saveClicked: true});
+        console.log(this.state);
+        console.log(this.state.editClicked);
+        console.log(this.state.saveClicked);
         this.setState({
-          
+          title: (this.state.title) ? this.state.title : this.props.location.state.title,
+          description: (this.state.description) ? this.state.description : this.props.location.state.description
+
         })
       })
       .catch(err => {
@@ -80,7 +88,7 @@ class ImageDetail extends Component {
               <div id="textbox1">
                 <textarea
                   ref='title'
-                  defaultValue={this.props.location.state.title}
+                  defaultValue={(this.state.title) ? this.state.title : this.props.location.state.title}
                   onChange={this.updateTitleValue.bind(this)}
                   rows="2"
                   cols="40"
@@ -94,7 +102,7 @@ class ImageDetail extends Component {
               <div id="textbox2">
                 <textarea
                   ref='description'
-                  defaultValue={this.props.location.state.description}
+                  defaultValue={(this.state.description) ? this.state.description : this.props.location.state.description}
                   onChange={this.updateDescriptionValue.bind(this)}
                   rows="10"
                   cols="100"
@@ -110,7 +118,7 @@ class ImageDetail extends Component {
               <button className='ui large blue button' onClick={this.handleEditClick}>
                 Edit
               </button>
-              <button className='ui large blue button' onClick={this.editImage}>
+              <button className='ui large blue button' onClick={this.handleSaveClick}>
                 Save
               </button>
               <br />
@@ -133,7 +141,7 @@ class ImageDetail extends Component {
         // </div>
       )
     }
-    else if ((isLoggedIn() && this.state.editClicked === false)) {
+    else if ((isLoggedIn() && this.state.editClicked === false && this.state.saveClicked === false)) {
       return (
         <div>
           <div>
@@ -145,7 +153,55 @@ class ImageDetail extends Component {
                 <img className="ui centered big image" src={this.props.location.state.photo}></img>
                 <br />
                 <br />
-                <p>{this.props.location.state.description}</p>
+                <div id="booyahbox">
+                  <p>{this.props.location.state.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div id="editbutton">
+            <div className="ui center aligned basic segment">
+              <button className='ui large blue button' onClick={this.handleEditClick}>
+                Edit
+              </button>
+              <button className='ui large blue button' onClick={this.editImage}>
+                Save
+              </button>
+              <br />
+              <span>
+                {this.state.notification}
+              </span>
+            </div>
+          </div>
+          <Footer />
+        </div>
+        // <div>
+        //   <h1>WOW DETAILS NOT LOGGED IN</h1>
+        //   <br/>
+        //   <h1>{this.props.location.state.uniqueID}</h1>
+        //   <h1>{this.props.location.state.title}</h1>
+        //   <h1>{this.props.location.state.description}</h1>
+        //   <h1>{this.props.location.state.photo}</h1>
+        // </div>
+      )
+    }
+    else if ((isLoggedIn() && this.state.saveClicked === true && this.state.editClicked === false)) {
+      return (
+        <div>
+          <div>
+            <Nav/>
+            <div id="details">
+              <div className="ui segment">
+                <h1 className="ui center aligned header">{this.state.title}</h1>
+                <br />
+                <img className="ui centered big image" src={this.props.location.state.photo}></img>
+                <br />
+                <br />
+                <div id="booyahbox">
+                  <p>{this.state.description}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -188,7 +244,9 @@ class ImageDetail extends Component {
               <img className="ui centered big image" src={this.props.location.state.photo}></img>
               <br />
               <br />
-              <p>{this.props.location.state.description}</p>
+              <div id="booyahbox">
+                <p>{this.props.location.state.description}</p>
+              </div>
             </div>
           </div>
           <Footer />
