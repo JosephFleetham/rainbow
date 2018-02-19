@@ -84,7 +84,7 @@ class ImageDetail extends Component {
         <div>
           <Nav/>
           <div id="details">
-            <div className="ui segment">
+            <div id="details2">
               <div id="textbox1">
                 <textarea
                   ref='title'
@@ -147,14 +147,14 @@ class ImageDetail extends Component {
           <div>
             <Nav/>
             <div id="details">
-              <div className="ui segment">
-                <h1 className="ui center aligned header">{this.props.location.state.title}</h1>
+              <div id="details2">
+                <h1 className="ui center aligned header">{(this.state.title) ? this.state.title : this.props.location.state.title}</h1>
                 <br />
                 <img className="ui centered big image" src={this.props.location.state.photo}></img>
                 <br />
                 <br />
                 <div id="booyahbox">
-                  <p>{this.props.location.state.description}</p>
+                  <p>{(this.state.description) ? this.state.description : this.props.location.state.description}</p>
                 </div>
               </div>
             </div>
@@ -193,14 +193,14 @@ class ImageDetail extends Component {
           <div>
             <Nav/>
             <div id="details">
-              <div className="ui segment">
-                <h1 className="ui center aligned header">{this.state.title}</h1>
+              <div id="details2">
+                <h1 className="ui center aligned header">{(this.state.title) ? this.state.title : this.props.location.state.title}</h1>
                 <br />
                 <img className="ui centered big image" src={this.props.location.state.photo}></img>
                 <br />
                 <br />
                 <div id="booyahbox">
-                  <p>{this.state.description}</p>
+                  <p>{(this.state.description) ? this.state.description : this.props.location.state.description}</p>
                 </div>
               </div>
             </div>
@@ -238,7 +238,7 @@ class ImageDetail extends Component {
         <div>
           <Nav/>
           <div id="details">
-            <div className="ui segment">
+            <div id="details2">
               <h1 className="ui center aligned header">{this.props.location.state.title}</h1>
               <br />
               <img className="ui centered big image" src={this.props.location.state.photo}></img>

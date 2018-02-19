@@ -72,8 +72,9 @@
 
 
 html {
-  background: url(utils/images/symphony.png);
+  background: url(utils/images/paper-background-4.jpg);
   height: 0px;
+  background-size: cover;
 }
 
 #x {
@@ -83,7 +84,20 @@ html {
 
 #editbutton {
   margin-top: -125px;
-  padding-bottom: 40px;
+  padding-bottom: 17px;
+}
+
+#details {
+}
+
+#details2 {
+  background: url(utils/images/ricepaper2.png);
+  background-size: auto;
+  padding-bottom: 75px;
+}
+
+#list {
+
 }
 
 #details h1 {
@@ -118,7 +132,24 @@ html {
 }
 
 #booyahbox {
-  background: #fff;
+  background: url(utils/images/ricepaper_v3.png);
   padding: 10px;
   margin: 30px 400px 30px 400px;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  border: 1px solid #DEB887;
+  border-color: #DEB887;
+
+}
+#booyahbox p {
+  margin-bottom: -120px;
+}
+
+#footer {
+  border-top: 1px solid 	#D2B48C;
+}
+
+#topnav {
+  border-bottom: 1px solid 	#D2B48C;
 }
