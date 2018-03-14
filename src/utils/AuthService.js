@@ -6,7 +6,7 @@ const ACCESS_TOKEN_KEY = 'access_token';
 
 const CLIENT_ID = 'BxXgJCtTUaNEaTAXQxtdL9SLn7tmjMqO';
 const CLIENT_DOMAIN = 'fleetham.auth0.com';
-const REDIRECT = 'https://rainbow-gallery.herokuapp.com/callback';
+const REDIRECT = 'http://localhost:3000/callback';
 const SCOPE = 'read:allimages';
 const AUDIENCE = 'rainbow.com';
 
