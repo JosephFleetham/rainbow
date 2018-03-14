@@ -17,7 +17,6 @@ app.use(cors());
 
 mongoose.connect('mongodb://jfleetham:rainbowasd123@ds029705.mlab.com:29705/rainbow');
 
-const PORT = process.env.PORT || 8080;
 
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
@@ -93,5 +92,5 @@ app.delete('/api/images/:image_id', (req, res) => {
 //Use our router configuration when we call /api
 //...
 
-app.listen(PORT);
+app.listen(3333);
 console.log('Listening on localhost:3333');
