@@ -59,7 +59,7 @@ class ImageDetail extends Component {
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
     });
-    axios.put('http://localhost:3333/api/images/' + id, image)
+    axios.put('https://api.mlab.com/api/1/databases/rainbow/collections/images/' + id + '?apiKey=1W1tqvCxoGyGvyM0tDQ2AipLCiFzEAS5', image)
       .then(res => {
         console.log('Image edited');
         this.setState({notification: "Changes sucessfully saved"})

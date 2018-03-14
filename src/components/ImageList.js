@@ -17,7 +17,7 @@ class ImageList extends Component {
       this.loadImagesFromServer = this.loadImagesFromServer.bind(this);
   }
   loadImagesFromServer() {
-      axios.get('http://localhost:3333/api/images')
+      axios.get('https://api.mlab.com/api/1/databases/rainbow/collections/images?apiKey=1W1tqvCxoGyGvyM0tDQ2AipLCiFzEAS5')
           .then(res => {
               this.setState({
                   data: res.data
@@ -51,7 +51,7 @@ class ImageList extends Component {
         title={image.title}
         description={image.description}
         photo={image.photo}
-        uniqueID={image['_id']}
+        uniqueID={image._id.$oid}
       />
     ));
     return (

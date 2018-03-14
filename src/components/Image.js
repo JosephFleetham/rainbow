@@ -21,7 +21,7 @@ class Image extends Component {
   deleteImage(e) {
     e.preventDefault();
     let id = this.props.uniqueID;
-    axios.delete('http://localhost:3333/api/images/' + id)
+    axios.delete('https://api.mlab.com/api/1/databases/rainbow/collections/images/' + id + '?apiKey=1W1tqvCxoGyGvyM0tDQ2AipLCiFzEAS5')
       .then(res => {
         console.log('Image deleted');
         console.log(id)

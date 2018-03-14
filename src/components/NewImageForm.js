@@ -62,7 +62,7 @@ class NewImageForm extends Component {
     image.id = Date.now();
     let newImages = images.concat([image]);
     this.setState({ data: newImages });
-    axios.post('http://localhost:3333/api/images', image)
+    axios.post('https://api.mlab.com/api/1/databases/rainbow/collections/images?apiKey=1W1tqvCxoGyGvyM0tDQ2AipLCiFzEAS5', image)
       .then(res => {
         this.setState({
           data: res
