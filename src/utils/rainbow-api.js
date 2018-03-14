@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getAccessToken } from './AuthService';
 
-const BASE_URL = 'https://rainbow-gallery.herokuapp.com';
+const BASE_URL = 'http://localhost:3333';
 
 export {getImageData, deleteData};
 

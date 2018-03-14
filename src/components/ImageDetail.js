@@ -59,7 +59,7 @@ class ImageDetail extends Component {
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
     });
-    axios.put('https://rainbow-gallery.herokuapp.com/api/images/' + id, image)
+    axios.put('http://localhost:3333/api/images/' + id, image)
       .then(res => {
         console.log('Image edited');
         this.setState({notification: "Changes sucessfully saved"})
