@@ -62,7 +62,7 @@ class NewImageForm extends Component {
     image.id = Date.now();
     let newImages = images.concat([image]);
     this.setState({ data: newImages });
-    axios.post('http://localhost:3333/api/images', image)
+    axios.post('https://rainbow-gallery.herokuapp.com/api/images', image)
       .then(res => {
         this.setState({
           data: res

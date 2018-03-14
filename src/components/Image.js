@@ -21,7 +21,7 @@ class Image extends Component {
   deleteImage(e) {
     e.preventDefault();
     let id = this.props.uniqueID;
-    axios.delete('http://localhost:3333/api/images/' + id)
+    axios.delete('https://rainbow-gallery.herokuapp.com/api/images/' + id)
       .then(res => {
         console.log('Image deleted');
         console.log(id)

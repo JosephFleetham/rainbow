@@ -17,7 +17,7 @@ class ImageList extends Component {
       this.loadImagesFromServer = this.loadImagesFromServer.bind(this);
   }
   loadImagesFromServer() {
-      axios.get('http://localhost:3333/api/images')
+      axios.get('https://rainbow-gallery.herokuapp.com/api/images')
           .then(res => {
               this.setState({
                   data: res.data
