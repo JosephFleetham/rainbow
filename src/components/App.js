@@ -18,14 +18,22 @@ class App extends Component {
             <Nav
 
             />
-            <div className="ui text container">
-              <h1 className="ui header">
-                Rainbow
-              </h1>
-              <h2>
-                Rainbows Gallery
-              </h2>
-              <Link to="/gallery">Here</Link>
+            <div id="homebackground">
+              <div className="ui text container">
+                <h1 className="ui header">
+                  Round River Creations
+                </h1>
+                <div id="textbox">
+                </div>
+                <div id="hometext">
+                  <h2>
+                    Made with love in Arcata, CA
+                  </h2>
+                  <h2>
+                    <Link to="/gallery">Go to Gallery</Link>
+                  </h2>
+                </div>
+              </div>
             </div>
           </div>
           <Footer

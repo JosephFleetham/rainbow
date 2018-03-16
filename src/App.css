@@ -88,12 +88,36 @@ html {
 }
 
 #details {
+  background-size: auto;
+  padding-bottom: 75px;
+  border: 1px;
+  margin: 0px 100px 0px 100px;
+  border-radius: 8px;
+  position: relative;
+}
+
+#details::after {
+  content: "";
+  background: url(utils/images/ricepaper_v3.png);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  border-radius: 8px;
 }
 
 #details2 {
-  background: url(utils/images/ricepaper2.png);
-  background-size: auto;
-  padding-bottom: 75px;
+opacity: 1;
+
+}
+
+#detailpagebox {
+  border: 1px;
+  margin: 0px 100px 0px 100px;
+  opacity: .5;
 }
 
 #list {
@@ -151,5 +175,52 @@ html {
 }
 
 #topnav {
-  border-bottom: 1px solid 	#D2B48C;
+
+}
+
+
+#navtext a {
+  font-family: 'Amatic SC', cursive;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+#homebackground {
+  padding-top: 120px;
+  background: url(utils/images/river.jpg);
+  background-size: cover;
+  height: 500px;
+  margin: 0px 75px 0px 75px;
+  border: 0px solid black;
+  box-shadow: 0 19px 38px rgba(0,0,0,.1), 0 15px 12px rgba(0,0,0,.12);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#hometext {
+  margin-top: -175px;
+  padding-top: 0px;
+  z-index: 1; position:relative;
+}
+
+#textbox {
+  margin-top: 100px;
+  height: 200px;
+  background: url(utils/images/ricepaper_v3.png);
+  opacity: 0.6;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  border: 1px solid #DEB887;
+  border-radius: 8px;
+  border-color: #DEB887;
+}
+
+#homebackground h1 {
+  font-size: 105px;
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  margin-top: -60px;
 }

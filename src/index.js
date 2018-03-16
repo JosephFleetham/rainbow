@@ -9,6 +9,7 @@ import Callback from './components/Callback.js'
 import $ from 'jquery'
 import NewImageForm from './components/NewImageForm.js';
 import ImageDetail from './components/ImageDetail.js';
+import Bypa from './components/Bypa.js'
 
 const Root = () => {
   return (
@@ -18,6 +19,7 @@ const Root = () => {
         <Route path="/gallery" component={ImageList}/>
         <Route path="/gallery/:image_id" component={ImageDetail} />
         <Route path="/callback" component={Callback} />
+        <Route path="/bypa" component={Bypa} />
       </Router>
     </div>
   )

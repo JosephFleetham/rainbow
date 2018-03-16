@@ -35,29 +35,36 @@ class Nav extends Component {
       <div id="topnav">
         <div className="ui vertical masthead center aligned segment">
           <div className="ui container">
-            <div className="ui large secondary pointing menu">
-              <a className="item">
-                About Me
-              </a>
-              <Link to="/gallery">
+            <div id="navtext">
+              <div className="ui large secondary pointing menu">
                 <a className="item">
-                  Gallery
+                  About Me
                 </a>
-              </Link>
-              <div className="column">
-                {
-                  ( isLoggedIn() ) ?
-                  <div className="ui dropdown">
-                      <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
-                      <div id="menu">
-                        <NewImageForm
-                          onFormSubmit={this.handleSubmit}
-                          dropdownOpen={this.props.dropdownOpen}
-                        />
-                      </div>
-                  </div>
-                    :  ''
-                }
+                <Link to="/gallery">
+                  <a className="item">
+                    Gallery
+                  </a>
+                </Link>
+                <Link to="/bypa">
+                  <a className="item">
+                    Backyard Planetary Alliance
+                  </a>
+                </Link>
+                <div className="column">
+                  {
+                    ( isLoggedIn() ) ?
+                    <div className="ui dropdown">
+                        <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
+                        <div id="menu">
+                          <NewImageForm
+                            onFormSubmit={this.handleSubmit}
+                            dropdownOpen={this.props.dropdownOpen}
+                          />
+                        </div>
+                    </div>
+                      :  ''
+                  }
+                </div>
               </div>
             </div>
           </div>
