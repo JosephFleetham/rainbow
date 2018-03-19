@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import ImageList from  './ImageList.js'
+import Image from './Image.js'
 import Nav from './Nav.js'
 import axios from 'axios';
 import DATA from '../utils/data.json';
@@ -15,7 +16,8 @@ class App extends Component {
       super();
       this.state = {
         data: [],
-        pollInterval: 2000
+        pollInterval: 2000,
+        index : []
       };
       this.loadImagesFromServer = this.loadImagesFromServer.bind(this);
   }
@@ -30,10 +32,19 @@ class App extends Component {
   componentDidMount() {
       this.loadImagesFromServer();
       setInterval(this.loadImagesFromServer, this.state.pollInterval);
-      console.log(this.state.data);
   }
-  
+
   render() {
+    const images = this.state.data.map((image) => (
+      <Image
+        data = {this.state.data}
+        key={image['_id']}
+        title={image.title}
+        description={image.description}
+        photo={image.photo}
+        uniqueID={image._id.$oid}
+      />
+    ));
     return (
       <div className="body">
         <div className="pusher">
@@ -58,25 +69,18 @@ class App extends Component {
                 </div>
               </div>
             </div>
-            <div id="homebox">
+            <div id="homeboxfeatured">
               <h1> Featured Items </h1>
-              <div className="ui three column grid">
-                <div className="column">
-                  <div className="ui segment">
-                    <img></img>
+                <div id="homegridfeatured">
+                  <div className="ui two column grid">
+                    <div className="column">
+                        {images[(images.length) - 1]}
+                    </div>
+                    <div className="column">
+                        {images[(images.length) - 2]}
+                    </div>
                   </div>
                 </div>
-                <div className="column">
-                  <div className="ui segment">
-                    <img></img>
-                  </div>
-                </div>
-                <div className="column">
-                  <div className="ui segment">
-                    <img></img>
-                  </div>
-                </div>
-              </div>
             </div>
             <div id="homeboxabout">
               <div className="ui grid">
@@ -129,6 +133,29 @@ class App extends Component {
                 <div className="eight wide column">
                   <img src="https://ucarecdn.com/82f7e50a-6977-41b0-84ac-5056a91a0fda/-/crop/745x612/125,108/-/preview/" alt="bypa">
                   </img>
+                </div>
+
+              </div>
+            </div>
+            <div id="homeboxcontact">
+              <div className="ui grid">
+                <div className="three wide column"></div>
+                <div className="ten wide column">
+                  <h1 className="ui header">
+                    Contact Me
+                  </h1>
+                  <p>
+                  To clean up the environment, create jobs for our community, reshape the idea of plastic into precious objects, YEAH!
+                  We are artist and we are hampered in our artistic endeavors by the explosive amount of garbage in our environment.
+                  In other words, we really feel the need to clean up first before we do art, which brought about what to do with all this garbage.
+                  And in our search we found the PreciousPlastic.com website.
+                  And the idea of recycling plastic to re-work it into more permanent objects, ‘precious’  the plastic into new functional quality Art-ifacts.
+                  </p>
+                  <h3>
+                    <Link to="/contact">Learn more...</Link>
+                  </h3>
+                </div>
+                <div className="three wide column">
                 </div>
 
               </div>

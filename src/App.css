@@ -206,7 +206,7 @@ opacity: 1;
 #textbox {
   margin-right: 200px;
   margin-left: 200px;
-  margin-top: 275px;
+  margin-top: 265px;
   height: 100px;
   background: url(utils/images/ricepaper_v3.png);
   opacity: 0.6;
@@ -239,20 +239,7 @@ opacity: 1;
   font-family: 'Amatic SC', cursive;
 }
 
-#homebox {
-  margin-top: 50px;
-  /* margin: 0px 75px 0px 75px; */
-  height: auto;
-  background: url(utils/images/ricepaper_v3.png);
-  padding-top: 50px;
-  padding-bottom: 50px;
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
-  border: 1px solid #DEB887;
-  border-radius: 8px;
-  border-color: #DEB887;
-}
+
 
 #homeboxbypa {
   margin-top: 50px;
@@ -328,4 +315,59 @@ opacity: 1;
 #homeboxabout h2{
   font-family: 'Nanum Myeongjo', serif;
   margin-right: 50px;
+}
+
+#homegridfeatured {
+  padding-right: 200px;
+  padding-left: 200px;
+}
+
+#homegridfeatured img {
+  margin-left: -250px;
+}
+
+#homeboxfeatured {
+  margin-top: 50px;
+  /* margin: 0px 75px 0px 75px; */
+  height: auto;
+  background: url(utils/images/ricepaper_v3.png);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  border: 1px solid #DEB887;
+  border-radius: 8px;
+  border-color: #DEB887;
+}
+
+#homeboxfeatured h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+}
+
+#homeboxcontact {
+  margin-top: 50px;
+  /* margin: 0px 75px 0px 75px; */
+  height: auto;
+  background: url(utils/images/ricepaper_v3.png);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  border: 1px solid #DEB887;
+  border-radius: 8px;
+  border-color: #DEB887;
+}
+
+#homeboxcontact h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+}
+
+#homeboxcontact p {
+  padding: 10px 50px 10px 50px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 20px;
 }

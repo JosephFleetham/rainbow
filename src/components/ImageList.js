@@ -27,6 +27,7 @@ class ImageList extends Component {
   componentDidMount() {
       this.loadImagesFromServer();
       setInterval(this.loadImagesFromServer, this.state.pollInterval);
+      console.log(this.state.data)
   }
 
 
