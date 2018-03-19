@@ -47,14 +47,14 @@ class Nav extends Component {
                 </Link>
                 <Link to="/bypa">
                   <a className="item">
-                    Backyard Planetary Alliance
+                    BackYard Planetary Alliance
                   </a>
                 </Link>
                 <div className="column">
                   {
                     ( isLoggedIn() ) ?
                     <div className="ui dropdown">
-                        <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create a card...</a>
+                        <a className="yellow item" onClick={this.toggleForm.bind(this)}>Create an item...</a>
                         <div id="menu">
                           <NewImageForm
                             onFormSubmit={this.handleSubmit}
