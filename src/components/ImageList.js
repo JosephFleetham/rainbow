@@ -7,6 +7,7 @@ import axios from 'axios';
 import Footer from './Footer.js'
 
 
+
 class ImageList extends Component {
   constructor() {
       super();
@@ -17,13 +18,11 @@ class ImageList extends Component {
       this.loadImagesFromServer = this.loadImagesFromServer.bind(this);
   }
   loadImagesFromServer() {
-      axios.get('https://api.mlab.com/api/1/databases/rainbow/collections/images?apiKey=1W1tqvCxoGyGvyM0tDQ2AipLCiFzEAS5')
-          .then(res => {
-              this.setState({
-                  data: res.data
-              });
-          })
+    getImageData().then((data) => {
+         this.setState({ data });
+    })
   }
+
   componentDidMount() {
       this.loadImagesFromServer();
       setInterval(this.loadImagesFromServer, this.state.pollInterval);
@@ -33,8 +32,7 @@ class ImageList extends Component {
 
 
   // getImages() {
-  //   getImageData().then((images) => {
-  //     this.setState({ images });
+  //   getImageData()
   //   });
   // }
   //

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { getImageData } from '../utils/rainbow-api';
+import { getImageData, postImageData } from '../utils/rainbow-api';
 
 class NewImageForm extends Component {
   constructor() {
@@ -62,8 +62,7 @@ class NewImageForm extends Component {
     image.id = Date.now();
     let newImages = images.concat([image]);
     this.setState({ data: newImages });
-    axios.post('https://api.mlab.com/api/1/databases/rainbow/collections/images?apiKey=1W1tqvCxoGyGvyM0tDQ2AipLCiFzEAS5', image)
-      .then(res => {
+    postImageData().then(res => {
         this.setState({
           data: res
         });
